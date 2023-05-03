@@ -1,0 +1,63 @@
+<div>
+
+  <div>
+    <h1>
+      <%= @current_user.first_name %> <%= @current_user.last_name %>'s bookmarks
+
+      <form action="/insert_bookmark" method="post">
+        <select name="query_movie_id" id="move_id_box">
+        <% Movie.all.order(:title).each do |movie| %>
+          <option value="<%= movie.id %>">
+            <%= movie.title %>
+          </option>
+          <% end %>
+          </select>
+          <button>
+          Bookmark this movie!
+          </button>
+        </h1>
+      </div>
+    </div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Movie
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+        </th>
+
+      </tr>
+
+      <% @list_of_bookmarks.each do |a_bookmark| %>
+      <tr>
+
+        <td>
+          <%= Movie.where({ :id => a_bookmark.movie_id}).at(0).title %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_bookmark.created_at) %> ago
+        </td>
+
+        <td>
+          <a href="/delete_bookmark/<%= a_bookmark.id %>">
+            Un-bookmark
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
