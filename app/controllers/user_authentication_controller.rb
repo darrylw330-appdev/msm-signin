@@ -38,11 +38,9 @@ class UserAuthenticationController < ApplicationController
 
   def create
     @user = User.new
-    @user.first_name = params.fetch("query_first_name")
-    @user.last_name = params.fetch("query_last_name")
+    @user.email = params.fetch("query_email")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
-    @user.email = params.fetch("query_email")
 
     save_status = @user.save
 
@@ -61,11 +59,9 @@ class UserAuthenticationController < ApplicationController
 
   def update
     @user = @current_user
-    @user.first_name = params.fetch("query_first_name")
-    @user.last_name = params.fetch("query_last_name")
+    @user.email = params.fetch("query_email")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
-    @user.email = params.fetch("query_email")
     
     if @user.valid?
       @user.save
