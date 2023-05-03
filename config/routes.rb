@@ -114,6 +114,7 @@ Rails.application.routes.draw do
   # READ
   get("/directors", { :controller => "directors", :action => "index" })
   
+  get("/directors/youngest", :controller => "directors", :action => "youngest" )
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
   
   # UPDATE
@@ -122,6 +123,7 @@ Rails.application.routes.draw do
   
   # DELETE
   get("/delete_director/:path_id", { :controller => "directors", :action => "destroy" })
+
 
   #------------------------------
 

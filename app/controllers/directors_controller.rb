@@ -10,11 +10,14 @@ class DirectorsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
 
-    matching_directors = Director.where({ :id => the_id })
-
-    @the_director = matching_directors.at(0)
+    @the_director = Director.where({ :id => the_id }).at(0)
 
     render({ :template => "directors/show.html.erb" })
+  end
+
+  def youngest
+    @the_director = Director.order({ :dob => :desc }).where.not(dob: nil).at(0)
+    render({ :template => "directors/youngest.html.erb" })
   end
 
   def create
