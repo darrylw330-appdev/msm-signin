@@ -1,2 +1,11 @@
 youngest
-<%= @the_director.inspect %>
+<h2>Youngest director</h2>
+
+<p>
+The youngest director in our dataset right now is <a href="/directors/<%= @the_director.id %>">
+<%= @the_director.name %>
+ </a>
+
+born on January 19, 1985.
+</p>
+(http://strftime.net/ is handy for putting together the formatting strings for the .strftime method.)

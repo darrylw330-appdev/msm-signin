@@ -1,24 +1,5 @@
 Rails.application.routes.draw do
 
-  # Routes for the Bookmark resource:
-
-  # CREATE
-  post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
-          
-  # READ
-  get("/bookmarks", { :controller => "bookmarks", :action => "index" })
-  
-  get("/bookmarks/:path_id", { :controller => "bookmarks", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_bookmark/:path_id", { :controller => "bookmarks", :action => "update" })
-  
-  # DELETE
-  get("/delete_bookmark/:path_id", { :controller => "bookmarks", :action => "destroy" })
-
-  #------------------------------
-
   get("/", { controller: "application", action: "homepage"})
   # Routes for the Bookmark resource:
 
@@ -114,7 +95,6 @@ Rails.application.routes.draw do
   # READ
   get("/directors", { :controller => "directors", :action => "index" })
   
-  get("/directors/youngest", :controller => "directors", :action => "youngest" )
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
   
   # UPDATE
@@ -123,7 +103,6 @@ Rails.application.routes.draw do
   
   # DELETE
   get("/delete_director/:path_id", { :controller => "directors", :action => "destroy" })
-
 
   #------------------------------
 
