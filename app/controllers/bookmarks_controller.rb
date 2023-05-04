@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :force_user_sign_in
   def index
     matching_bookmarks = Bookmark.all
 
@@ -19,7 +20,7 @@ class BookmarksController < ApplicationController
 
   def create
     the_bookmark = Bookmark.new
-    the_bookmark.user_id = session.fetch(user_id)
+    the_bookmark.user_id = session.fetch(:user_id)
     the_bookmark.movie_id = params.fetch("query_movie_id")
 
     if the_bookmark.valid?

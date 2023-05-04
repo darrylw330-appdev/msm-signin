@@ -14,11 +14,11 @@
   </head>
 
   <body>
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-    </ul>
+  <% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
     <%= yield %>
   </body>
 </html>
